@@ -1,21 +1,15 @@
-# ![plant-simulator-ui](logo.png)
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/996bef52feb148039c61f0db9cff9830)](https://www.codacy.com/app/joesan/plant-simulator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=joesan/plant-simulator&amp;utm_campaign=Badge_Grade)
-[![codecov](https://codecov.io/gh/joesan/plant-simulator/branch/master/graph/badge.svg)](https://codecov.io/gh/joesan/plant-simulator)
-[![Build Status](https://travis-ci.org/joesan/plant-simulator.svg?branch=master)](https://travis-ci.org/joesan/plant-simulator)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1185/badge)](https://bestpractices.coreinfrastructure.org/projects/1185)
-[![Github All Releases](https://img.shields.io/github/downloads/joesan/plant-simulator/total.svg)]()
-[![Powered By](https://img.shields.io/badge/poweredBy-Scala-brightgreen.svg)]()
+[![Codacy Badge]()]()
+[![codecov]()]()
 
 ##
 
-# plant-simulator [![Open Source](https://img.shields.io/badge/Open%20Source-100%25-yellowgreen.svg)](https://github.com/ellerbrock/open-source-badges/)
+# plant-aggregator [![Open Source](https://img.shields.io/badge/Open%20Source-100%25-yellowgreen.svg)](https://github.com/ellerbrock/open-source-badges/)
 
 ## Getting Started 
 
 This project is completely OpenSource, so feel free to explore and if you have better ideas, please let me know or even better please contribute! 
 
-For some background information on the project, have a look [here](https://github.com/joesan/plant-simulator/wiki)
+For some background information on the project, have a look [here](https://github.com/joesan/plant-aggregator/wiki)
 
 These instructions below will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
@@ -35,7 +29,7 @@ Follow the steps below to import the project into IntelliJ
 
 ```
 1. Clone the project from: 
-   git clone https://github.com/joesan/plant-simulator.git
+   git clone https://github.com/joesan/plant-aggregator.git
    
 2. Fire up IntelliJ and import the project
    
@@ -44,7 +38,7 @@ Follow the steps below to import the project into IntelliJ
 
 ### Database Support
 
-Though th application is multi database compliant, currently only MySQL and H2 databases are supported, the reason being that the [set up scripts](https://github.com/joesan/database-projects/tree/master/power-plant-simulator) are only avaiable for MySQL and H2. 
+Though the application is multi database compliant, currently only MySQL and H2 databases are supported, the reason being that the [set up scripts](https://github.com/joesan/database-projects/tree/master/power-plant-aggregator) are only avaiable for MySQL and H2. 
 
 You have to make sure to set up your database and configure the database credentials and url in one of the applicatiox.xxxx.conf files (where xxxx stands for either test or prod)
 
@@ -85,7 +79,7 @@ If you want to run the application against a MySQL database, follow the instruct
 ```
 0. First, we need a database that is up and running. Please have a look at
    this project that contains the setup script for the database (Supported databases are MySQL and H2):
-   https://github.com/joesan/database-projects/tree/master/power-plant-simulator
+   https://github.com/joesan/database-projects/tree/master/power-plant-aggregator
    
    Make sure to have a running instance of your database server and to run the setup scripts.
    
@@ -107,7 +101,7 @@ If you want to run the application against a MySQL database, follow the instruct
 3. Navigate to the following url on your favorite browser:
    http://localhost:9000
    
-4. To do something meaningful with the application, have a look at the [documentation](https://github.com/joesan/plant-simulator/wiki/API-Documentation) for more information on how to call the API's!
+4. To do something meaningful with the application, have a look at the [documentation](https://github.com/joesan/plant-aggregator/wiki/API-Documentation) for more information on how to call the API's!
    
 ``` 
 
@@ -146,13 +140,13 @@ To visualize the application and to do some real work with it, have a look [here
 
 ## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/joesan/plant-simulator/issues)
 
-For more information on how to contribute, have a look [here](https://github.com/joesan/plant-simulator/blob/master/CONTRIBUTING.md)
+For more information on how to contribute, have a look [here](https://github.com/joesan/plant-aggregator/blob/master/CONTRIBUTING.md)
 
 ## Authors / Maintainers
 
 * *Joesan*           - [Joesan @ GitHub](https://github.com/joesan/)
 
-See also the list of [contributors](https://github.com/joesan/plant-simulator/graphs/contributors) who helped.
+See also the list of [contributors](https://github.com/joesan/plant-aggregator/graphs/contributors) who helped.
 
 ## License [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
