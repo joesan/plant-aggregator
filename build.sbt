@@ -1,4 +1,4 @@
-name := """plant-simulator"""
+name := """plant-aggregator"""
 
 version := "1.0-SNAPSHOT"
 
