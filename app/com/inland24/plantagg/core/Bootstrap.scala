@@ -17,6 +17,7 @@
 
 package com.inland24.plantagg.core
 
+import com.inland24.plantagg.controllers.ApplicationController
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.{LazyLogging, StrictLogging}
 import controllers.ApiHelpController
@@ -26,12 +27,17 @@ import play.api.{Application, BuiltInComponentsFromContext, Configuration, _}
 import play.api.libs.ws.ahc.AhcWSComponents
 import play.api.ApplicationLoader.Context
 
+import scala.concurrent.Future
+import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.LazyLogging
+import play.api.{Application, BuiltInComponentsFromContext, Configuration, _}
+import play.api.ApplicationLoader.Context
+
 // these two imports below are needed for the routes resolution
 import play.api.routing.Router
 import router.Routes
 
 import scala.concurrent.Future
-
 
 /**
   * Bootstrap the application by performing a compile time DI
@@ -39,8 +45,8 @@ import scala.concurrent.Future
 final class Bootstrap extends ApplicationLoader with LazyLogging {
 
   private[this] class App(context: Context)
-    extends BuiltInComponentsFromContext(context) with AhcWSComponents
-      with StrictLogging {
+    extends BuiltInComponentsFromContext(context)
+      with _root_.controllers.AssetsComponents {
 
     // We use the Monix Scheduler
     implicit val s = monix.execution.Scheduler.Implicits.global
@@ -56,31 +62,38 @@ final class Bootstrap extends ApplicationLoader with LazyLogging {
     }
 
     // 0. Set the filters
-    lazy val loggingFilter: LoggingFilter = new LoggingFilter()
-    override lazy val httpFilters = Seq(loggingFilter)
+    override lazy val httpFilters = Seq(new LoggingFilter())
 
     // 1. create the dependencies that will be injected
     lazy val appBindings = start
 
     // 2. inject the dependencies into the controllers
-    lazy val apiHelpController = new ApiHelpController
-    lazy val webJarAssets = new WebJarAssets(httpErrorHandler, configuration, environment)
-    lazy val applicationController = new ApplicationController(appBindings.appConfig)
-    lazy val powerPlantController = new PowerPlantController(appBindings)
-    lazy val powerPlantOpsController = new PowerPlantOperationsController(appBindings)
-    lazy val assets = new Assets(httpErrorHandler)
+    // TODO: The dependencies below are for Swagger UI, which is not working at the moment!!!!
+    //lazy val apiHelpController = new ApiHelpController(DefaultControllerComponents)
+    //lazy val webJarAssets = new WebJarAssets(httpErrorHandler, configuration, environment)
+    lazy val applicationController =
+    new ApplicationController(appBindings.appConfig, controllerComponents)
+    lazy val powerPlantController =
+      new PowerPlantController(appBindings, controllerComponents)
+    lazy val powerPlantOpsController =
+      new PowerPlantOperationsController(appBindings, controllerComponents)
+    //lazy val assets = new Assets(httpErrorHandler)
+
+    // 3. Setup the Routes
     override def router: Router = new Routes(
       httpErrorHandler,
       assets,
       applicationController,
       powerPlantController,
-      powerPlantOpsController,
-      apiHelpController,
-      webJarAssets
+      powerPlantOpsController
+      //apiHelpController,
+      //webJarAssets
     )
 
-    // 3. add the shutdown hook to properly dispose all connections
-    applicationLifecycle.addStopHook { () => Future(stop(appBindings)) }
+    // 4. add the shutdown hook to properly dispose all connections
+    applicationLifecycle.addStopHook { () =>
+      Future(stop(appBindings))
+    }
   }
 
   override def load(context: Context): Application = {

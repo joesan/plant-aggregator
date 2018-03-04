@@ -19,11 +19,10 @@ package com.inland24.plantagg.core
 
 import akka.actor.{ActorRef, ActorSystem}
 import akka.stream.Materializer
-import com.inland24.plantsim.config.AppConfig
-import com.inland24.plantsim.services.database.PowerPlantService
-import com.inland24.plantsim.services.database.repository.impl.PowerPlantRepoAsTask
+import com.inland24.plantagg.config.AppConfig
 import monix.execution.Scheduler
 import play.api.libs.concurrent.Execution.Implicits
+
 // ******* Note: Both these imports should be here! Do not remove them!
 import monix.cats._
 import monix.eval.Task
