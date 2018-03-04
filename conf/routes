@@ -3,28 +3,27 @@
 # ~~~~
 
 # Root PAGE
-GET			/							 controllers.Assets.at(path="https://github.com/joesan/plant-simulator/blob/master/README.md", file)
+GET			/    							 controllers.Assets.at(path="https://github.com/joesan/plant-simulator/blob/master/README.md", file)
 
 # Endpoints for Configuration, Metrics
-GET			/plantagg/config		         com.inland24.plantsim.controllers.ApplicationController.appConfig
-GET         /plantagg/metrics                com.inland24.plantsim.controllers.ApplicationController.metrics
+GET			/plantagg/config		         com.inland24.plantagg.controllers.ApplicationController.appConfig
+GET         /plantagg/metrics                com.inland24.plantagg.controllers.ApplicationController.metrics
 
 # Endpoints to add / update / read / delete Plant Aggregator unit
-GET         /plantagg/aggregator/:id         com.inland24.plantsim.controllers.PowerPlantController.aggregator(id: Int)
-#GET        /plantagg/aggregators             com.inland24.plantsim.controllers.PowerPlantController.aggregators(onlyActive: Boolean ?= true, page: Int ?= 1)
-#GET        /plantagg/aggregator/search       com.inland24.plantsim.controllers.PowerPlantController.searchPowerPlants(onlyActive: Option[Boolean], page: Int ?= 1, powerPlantType: Option[String], powerPlantName: Option[String], orgName: Option[String])
-#POST       /plantagg/aggregator/:id          com.inland24.plantsim.controllers.PowerPlantController.updatePowerPlant(id: Int)
+GET         /plantagg/aggregator/:id         com.inland24.plantagg.controllers.AggregatorController.aggregator(id: Int)
+#GET         /plantagg/aggregator/search      com.inland24.plantagg.controllers.AggregatorController.aggregators(onlyActive: Option[Boolean], page: Int ?= 1)
+#POST        /plantagg/aggregator/create      com.inland24.plantagg.controllers.AggregatorController.createAggregator
+#POST        /plantagg/aggregator/:id/update  com.inland24.plantagg.controllers.AggregatorController.updateAggregator(id: Int)
 
 # Endpoints to steer a Plant Aggregator unit
-#GET         /plantagg/aggregator/:id/telemetry  com.inland24.plantsim.controllers.PowerPlantOperationsController.powerPlantSignals(id: Int)
-#POST        /plantagg/aggregator/:id/dispatch   com.inland24.plantsim.controllers.PowerPlantOperationsController.dispatchPowerPlant(id: Int)
-#POST        /plantagg/aggregator/:id/release    com.inland24.plantsim.controllers.PowerPlantOperationsController.returnToNormalPowerPlant(id: Int)
+#POST         /plantagg/aggregator/:id/dispatch   com.inland24.plantagg.controllers.AggregatorOperationsController.dispatch(id: Int)
+#POST         /plantagg/aggregator/dispatch       com.inland24.plantagg.controllers.AggregatorOperationsController.dispatchForSetPoint
 
 # Endpoints to tap into Alerts and Events
-#GET         /powerPlant/events           com.inland24.plantsim.controllers.PowerPlantOperationsController.events(id: Option[Int] = None)
+#GET          /powerPlant/events           com.inland24.plantagg.controllers.PowerPlantOperationsController.events(id: Option[Int] = None)
 
 # Endpoints to tap into Telemetry Signals
-#GET         /powerPlant/signals          com.inland24.plantsim.controllers.PowerPlantOperationsController.signals(id: Int)
+#GET          /powerPlant/signals          com.inland24.plantagg.controllers.PowerPlantOperationsController.signals(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET			/assets/*file				 controllers.Assets.versioned(path="/public", file: Asset)
