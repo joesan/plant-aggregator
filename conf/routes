@@ -11,9 +11,9 @@ GET         /plantagg/metrics                com.inland24.plantsim.controllers.A
 
 # Endpoints to add / update / read / delete Plant Aggregator unit
 GET         /plantagg/aggregator/:id         com.inland24.plantsim.controllers.PowerPlantController.aggregator(id: Int)
-#GET        /plantagg/aggregators            com.inland24.plantsim.controllers.PowerPlantController.aggregators(onlyActive: Boolean ?= true, page: Int ?= 1)
-#GET        /plantagg/aggregator/search      com.inland24.plantsim.controllers.PowerPlantController.searchPowerPlants(onlyActive: Option[Boolean], page: Int ?= 1, powerPlantType: Option[String], powerPlantName: Option[String], orgName: Option[String])
-#POST       /plantagg/aggregator/:id         com.inland24.plantsim.controllers.PowerPlantController.updatePowerPlant(id: Int)
+#GET        /plantagg/aggregators             com.inland24.plantsim.controllers.PowerPlantController.aggregators(onlyActive: Boolean ?= true, page: Int ?= 1)
+#GET        /plantagg/aggregator/search       com.inland24.plantsim.controllers.PowerPlantController.searchPowerPlants(onlyActive: Option[Boolean], page: Int ?= 1, powerPlantType: Option[String], powerPlantName: Option[String], orgName: Option[String])
+#POST       /plantagg/aggregator/:id          com.inland24.plantsim.controllers.PowerPlantController.updatePowerPlant(id: Int)
 
 # Endpoints to steer a Plant Aggregator unit
 #GET         /plantagg/aggregator/:id/telemetry  com.inland24.plantsim.controllers.PowerPlantOperationsController.powerPlantSignals(id: Int)
