@@ -3,6 +3,8 @@
 
 ##
 
+TODO: Under Documetation Currently!
+
 # plant-aggregator [![Open Source](https://img.shields.io/badge/Open%20Source-100%25-yellowgreen.svg)](https://github.com/ellerbrock/open-source-badges/)
 
 ## Getting Started 
@@ -38,7 +40,7 @@ Follow the steps below to import the project into IntelliJ
 
 ### Database Support
 
-Though the application is multi database compliant, currently only MySQL and H2 databases are supported, the reason being that the [set up scripts](https://github.com/joesan/database-projects/tree/master/power-plant-aggregator) are only avaiable for MySQL and H2. 
+Though the application is multi database compliant, currently only MySQL and H2 databases are supported, the reason being that the [set up scripts](https://github.com/joesan/database-projects/tree/master/power-plant-aggregator) are only avaiable for MySQL and H2. If you need support for other relational databases, please feel free to contribute. You only need to add the set up scripts and include the JDBC driver dependency to build.sbt. Everything else works out of the box!
 
 You have to make sure to set up your database and configure the database credentials and url in one of the applicatiox.xxxx.conf files (where xxxx stands for either test or prod)
 
