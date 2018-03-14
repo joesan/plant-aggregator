@@ -34,6 +34,9 @@ final case class AppConfig(
   appName: String,
   dbConfig: DBConfig
 )
+final case class PlantSimConfig(
+
+)
 final case class DBConfig(
   url: String,
   user: Option[String],

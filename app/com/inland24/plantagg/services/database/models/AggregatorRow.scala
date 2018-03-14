@@ -15,22 +15,9 @@
  *
  */
 
-package com.inland24.plantagg.controllers
+package com.inland24.plantagg.services.database.models
 
-import com.inland24.plantagg.config.AppConfig
-import play.api.mvc.{Action, AnyContent, ControllerComponents}
-
-class AggregatorController(appCfg: AppConfig,
-  val controllerComponents: ControllerComponents)
-  extends ControllerBase {
-
-  def aggregator(id: Int) = ???
-
-  def aggregators: Action[AnyContent] = Action.async {
-    appCfg.
-  }
-
-  def createAggregator = ???
-
-  def updateAggregator = ???
-}
+case class AggregatorRow(
+  id: Int,
+  totalCapacity: Double
+)

@@ -15,22 +15,20 @@
  *
  */
 
-package com.inland24.plantagg.controllers
+package com.inland24.plantagg.services.plantsim
 
-import com.inland24.plantagg.config.AppConfig
-import play.api.mvc.{Action, AnyContent, ControllerComponents}
+/**
+  * This service is used to communicate with the PlantSimulator
+  * application
+  */
+final class PlantSimulatorHTTPService {
 
-class AggregatorController(appCfg: AppConfig,
-  val controllerComponents: ControllerComponents)
-  extends ControllerBase {
+  // Can be used to dispatch multiple PowerPlants
+  def dispatchCommandsFor(plants: Seq[Int]) = ???
 
-  def aggregator(id: Int) = ???
-
-  def aggregators: Action[AnyContent] = Action.async {
-    appCfg.
-  }
-
-  def createAggregator = ???
-
-  def updateAggregator = ???
+  // Can be used to dispatch a single PowerPlant by its id
+  def dispatchCommandFor(id: Int) = ???
+}
+object PlantSimulatorHTTPService {
+  def apply = new PlantSimulatorHTTPService
 }

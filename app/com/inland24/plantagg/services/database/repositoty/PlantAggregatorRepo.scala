@@ -15,22 +15,15 @@
  *
  */
 
-package com.inland24.plantagg.controllers
+package com.inland24.plantagg.services.database.repositoty
 
-import com.inland24.plantagg.config.AppConfig
-import play.api.mvc.{Action, AnyContent, ControllerComponents}
+import com.inland24.plantagg.services.database.models.AggregatorRow
 
-class AggregatorController(appCfg: AppConfig,
-  val controllerComponents: ControllerComponents)
-  extends ControllerBase {
+import scala.language.higherKinds
 
-  def aggregator(id: Int) = ???
+trait PlantAggregatorRepo[M[_]] {
 
-  def aggregators: Action[AnyContent] = Action.async {
-    appCfg.
-  }
+  def aggregators: M[Seq[AggregatorRow]]
 
-  def createAggregator = ???
-
-  def updateAggregator = ???
+  def createAggregator: M[Seq[Int]]
 }
