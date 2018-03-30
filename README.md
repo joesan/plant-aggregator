@@ -7,6 +7,8 @@ TODO: Under Documetation Currently!
 
 # plant-aggregator [![Open Source](https://img.shields.io/badge/Open%20Source-100%25-yellowgreen.svg)](https://github.com/ellerbrock/open-source-badges/)
 
+The purpose of the aggregator is to aggregate distributed PowerPlant's and project them as a bigger PowerPlant. Additionaly, a matching mechanism for excess or deficit power production is performed so that that excess or deficit resulting from the matching will be placed as a trade in some Blockchain (Blockchain is just to catch attention, Blockchain at it's current state might not be in it's prime for P2P kind of stuff)
+
 ## Getting Started 
 
 This project is completely OpenSource, so feel free to explore and if you have better ideas, please let me know or even better please contribute! 
