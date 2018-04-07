@@ -3,7 +3,7 @@
 
 ##
 
-TODO: Under Documetation Currently!
+TODO: Under Development and Documetation Currently!
 
 # plant-aggregator [![Open Source](https://img.shields.io/badge/Open%20Source-100%25-yellowgreen.svg)](https://github.com/ellerbrock/open-source-badges/)
 
